@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <div class="header">
+        <h1 class="title"> Registrer deg! </h1>
+        <button class="menubutton" onclick="location.href='{{ url_for('home') }}'">Gå tilbake til hjemsiden</a>
+        </button>
+    </div>
+
+    <div class="container">
+        <form method="POST">
+            <label for="username">Brukernavn:</label>
+            <input type="text" id="username" name="username" required>
+            <br>
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" required>
+            <br>
+            <label for="password">Passord:</label>
+            <input type="text" id="password" name="password" required>
+            <br>
+            <button type="submit">Registrer</button>
+        </form>
+        <div class="link">
+            <a href="{{ url_for('login') }}">Har du en konto? Logg inn her!</a>
+        </div>
+    </div>
+</body>
+
+</html>

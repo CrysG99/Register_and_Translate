@@ -10,15 +10,17 @@
 
 <body>
     <div class="header">
-        <h1 class="title"> Geir Petter Torgersen oversetter! </h1>
-        <button onclick="location.href='{{ url_for('order') }}'">Bestill oversettelse</a> </button>
+        <h1 class="title"> GPT Oversettelse </h1>
+        <button class="menubutton" onclick="location.href='{{ url_for('order') }}'">Bestill oversettelse</a> </button>
+        <button class="menubutton" onclick="location.href='{{ url_for('register') }}'">Registrer deg/Logg inn</a>
+        </button>
     </div>
 
-    <div class="login">
-        <p> </p>
+    <div class="infotext">
+        <h1> Litt om oss! </h1>
+        <p> Hei! Jeg heter Geir Petter Torgersen og jeg jobber som bokoversetter. Fra denne nettsiden kan du bestille en
+            bok som du vil skal oversettes fra et stort utvalg! </p>
     </div>
-
-
 </body>
 
 </html>
