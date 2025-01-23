@@ -8,8 +8,6 @@ body {
     padding: 0;
 }
 
-a {}
-
 .header {
     display: flex;
     justify-content: space-evenly;
@@ -83,6 +81,13 @@ a {}
 }
 
 /* Bestillingssiden */
+
+.trendtext {
+    font-family: "Rowdies", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #000;
+}
 
 .book-container {
     display: flex;
