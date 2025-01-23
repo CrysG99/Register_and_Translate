@@ -29,6 +29,39 @@ a {}
     color: #fff;
 }
 
+.imgs {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.sunsetimg {
+    display: flex;
+    flex-direction: row;
+    margin-top: 2%;
+    margin-left: 0.5%;
+    border: 3px solid #000;
+}
+
+.boyimg {
+    display: flex;
+    flex-direction: row;
+    margin-top: 2%;
+    margin-right: 0.5%;
+    border: 3px solid #000;
+}
+
+.gptittel {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #000;
+}
+
+.gptext {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #000;
+
+}
+
 .infotext {
     font-size: 20px;
     text-align: center;
@@ -48,6 +81,86 @@ a {}
 .menubutton:hover {
     background-color: #1d403c;
 }
+
+/* Bestillingssiden */
+
+.book-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.book-card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    width: 200px;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.book-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.book-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.book-image {
+    width: 100px;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    z-index: 1000;
+}
+
+.popup-header {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.popup-close {
+    cursor: pointer;
+    color: red;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+
+
+/* Login/Register siden */
+
 
 .container {
     background: #fff;

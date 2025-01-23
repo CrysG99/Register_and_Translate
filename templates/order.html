@@ -11,8 +11,34 @@
 <body>
     <div class="header">
         <h1 class="title"> Bestill Oversettelse </h1>
-        <button class="menubutton" onclick="location.href='{{ url_for('home') }}'">Gå tilbake til hjemsiden</a> </button>
+        <button class="menubutton" onclick="location.href='{{ url_for('home') }}'">Gå tilbake til hjemsiden</a>
+        </button>
+        <button class="menubutton" onclick="location.href='{{ url_for('register') }}'">Registrer deg/Logg inn</a>
+    </div class="book-container">
+    <div class="book-card" onclick="showPopup('Bok 1')">
+        <img src="/static/img/1984_Book.jpg" alt="The book 1984 made by George Orwell" class="book-image">
+        <div class="book-title">1984</div>
     </div>
+
+    <div class="book-card" onclick="showPopup('Bok 2')">
+        <img src="/static/img/theshadowofthewind.jpg" alt="The book the Shadow of the Wind" class="book-image">
+        <div class="book-title">The Shadow of the Wind</div>
+    </div>
+
+    <div class="book-card"
+        onclick="showPopup('Drep ikke en sangfugl (originaltittel To Kill a Mockingbird) er en roman fra 1960 skrevet av Harper Lee. Romanen vant Pulitzerprisen i 1961, og den ble filmatisert i 1962 og fikk tre Oscar-priser, blant annet for beste mannlige hovedrolle med Gregory Peck. Romanen regnes som en moderne amerikansk klassiker. Handlingen og romanfigurene er løst basert på forfatterens familie og naboer, samt en hendelse som skjedde i nærheten av hennes hjemby da hun var i tiårsalderen. ')">
+        <img src="/static/img/Tokillamockingbird.jpg" alt="The book to kill a mockingbird" class="book-image">
+        <div class="book-title">To kill a Mockingbird</div>
+    </div>
+    </div>
+    <div class="overlay" id="overlay" onclick="closePopup()"></div>
+    <div class="popup" id="popup">
+        <div class="popup-header" id="popup-title"></div>
+        <div class="popup-body" id="popup-body"></div>
+        <div class="popup-close" onclick="closePopup()">Lukk</div>
+    </div>
+
+    <script src="/static/script.js"></script>
 </body>
 
 </html>
