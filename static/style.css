@@ -86,8 +86,11 @@ a {}
 
 .book-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    flex-direction: row;
+    gap: 20px;
     margin-top: 20px;
+    flex-wrap: wrap;
 }
 
 .book-card {
@@ -193,6 +196,7 @@ input {
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 1rem;
+    transition: background 0.3s ease;
 }
 
 input:focus {
