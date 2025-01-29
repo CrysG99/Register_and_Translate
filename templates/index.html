@@ -14,6 +14,10 @@
         <button class="menubutton" onclick="location.href='{{ url_for('order') }}'">Bestill oversettelse</a> </button>
         <button class="menubutton" onclick="location.href='{{ url_for('register') }}'">Registrer deg/Logg inn</a>
         </button>
+        <button class="userbutton" onclick="location.href='{{ url_for('profile', username=session['username']) }}'">
+            <img src="/static/img/greypfp.png" alt="Klikkbart profilbilde" width="10%">
+        </button>
+        </svg>
     </div>
 
     <div class="infotext">

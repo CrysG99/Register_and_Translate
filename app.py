@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 import pymysql #type: ignore
+from flask import session
 import re
 
 app = Flask(__name__)
@@ -12,6 +13,34 @@ db_config = {
     'password': 'jonathan2007',
     'database': 'book_store'
 }
+
+@app.route('/profile/<username>')
+def profile(username):
+    try:
+        conn = pymysql.connect(**db_config)
+        cur = conn.cursor()
+
+        user_query = "SELECT id, username, email FROM users WHERE username = %s"
+        cur.execute(user_query, (username,))
+        user = cur.fetchone()
+
+        if not user:
+            flash('Bruker ikke funnet', 'danger')
+            return redirect('/')
+        
+        orders_query = "SELECT book_title, order_date FROM orders WHERE user_id = %s"
+        cur.execute(orders_query, (user[0],))
+        orders = cur.fetchall()
+
+        cur.close()
+        conn.close()
+
+        return render_template('profile.html', user=user, orders=orders)
+    
+    except Exception as e:
+        flash(f"Feil med å laste profilen: {e}", 'danger')
+        return redirect('/')
+    
 
 @app.route('/')
 def home():
@@ -49,25 +78,53 @@ def login():
         username = request.form['username']
         email = request.form['email']
         password = request.form['password']
-
+    try:
         conn = pymysql.connect(**db_config)
         cur = conn.cursor()
-        cur.execute("SElECT * FROM users WHERE username = %s AND password = %s", (username, password))
+        cur.execute("SELECT * FROM users WHERE username = %s AND password = %s", (username, password))
         user = cur.fetchone()
         cur.close()
         conn.close()
 
         if user:
-            flash('Logget inn! Velkommen {username}', 'suksess')
-            return redirect(url_for('home'))
+            session['user_id'] = user[0]
+            session['username'] = user[1]
+            flash('Logget inn! Velkommen {user[1]}', 'success')
+            return redirect(url_for('profile', username=user[1]))
         else:
             flash('Ugyldig brukernavn eller passord', 'danger')
-            print(f"Error: {e}")
-            
+            return redirect(url_for('login'))
+    except Exception as e:
+        flash(f"Feil med innlogging: {e}", 'danger')
+        return redirect(url_for('login'))
     return render_template('login.html')
 
-@app.route('/order')
+@app.route('/order', methods=['GET', 'POST'])
 def order():
+    if request.method == 'POST':
+        if 'user_id' not in session:
+            flash('Logg inn for å legge inn en bestilling', 'danger')
+            return redirect(url_for('login'))
+        
+        book_title = request.form['book_title']
+        user_id = session['user_id']
+
+        try:
+            conn = pymysql.connect(**db_config)
+            cur = conn.cursor()
+
+            query = "INSERT INTO orders (user_id, book_title) VALUES (%s, %s)"
+            cur.execute(query, (user_id, book_title))
+            conn.commit()
+
+            cur.close()
+            conn.close()
+            flash('Ordre har blitt bestilt!', 'success')
+            return redirect(url_for('profile', username=session['username']))
+        except Exception as e:
+            flash(f"Feil med bestilling: {e}", 'danger')
+            return redirect(url_for('order'))
+        
     return render_template('order.html')
 
 if __name__ == '__main__':

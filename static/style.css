@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 
 
 body {
@@ -80,10 +80,44 @@ body {
     background-color: #1d403c;
 }
 
+.userbutton {
+    margin-top: 24px;
+    margin-bottom: 24px;
+    margin-left: 100px;
+    margin-right: 100px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease-in-out;
+    background-color: #214a46;
+    border: none;
+    color: #fff;
+    font-weight: 600;
+}
+
+.userbutton:hover {
+    background-color: #1d403c;
+}
+
+
 /* Bestillingssiden */
 
 .trendtext {
     font-family: "Rowdies", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #000;
+}
+
+.order-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.order-text {
+    font-family: "Righteous", serif;
     font-weight: 400;
     font-style: normal;
     color: #000;

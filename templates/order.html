@@ -17,6 +17,28 @@
     </div>
 
 
+    <div class="order-container">
+        <h1 class="order-text"> Bestill en bok </h1>
+        <form action="/order" method="POST">
+            <label class="order-label" for="book_title">Skriv inn boktittelen:</label>
+            <input type="text" id="book_title" name="book_title" placeholder="Eks., The Catcher in the Rye" required>
+
+            <label for="language">Språk for oversettelse:</label>
+            <select name="language" id="language" required>
+                <option value="">Velg et språk</option>
+                <option value="English">Engelsk</option>
+                <option value="Spanish">Spansk</option>
+                <option value="French">Fransk</option>
+                <option value="German">Tysk</option>
+                <option value="Chinese">Kinesisk</option>
+                <option value="Japanese">Japansk</option>
+                <option value="Other">Andre</option>
+            </select>
+
+            <button class="" type="submitbook">Bestill Bok</button>
+        </form>
+    </div>
+
     <h1 class="trendtext"> Trending 🔥 </h1>
 
 
