@@ -14,13 +14,20 @@ function closePopup() {
     document.getElementById('overlay').style.display = 'none';
 }
 
-function checkOtherLanguage() {
+function checkChooseLanguage() {
     var languageSelect = document.getElementById("language");
-    var otherLanguageInput = document.getElementById("otherLanguage");
+    var submitBook = document.getElementById("submitBook");
+    var otherLanguageInput = document.getElementById("otherLanguage")
 
-    if (languageSelect.value == "Other") {
-        otherLanguageInput.style.display = "block";
-    } else {
+    if (languageSelect.value === "" || languageSelect.value === "Choose") {
+        submitBook.style.display = "none";
         otherLanguageInput.style.display = "none";
+    } else {
+        submitBook.style.display = "block";
+        if (languageSelect.value === "Other") {
+            otherLanguageInput.style.display = "block";
+        } else {
+            otherLanguageInput.style.display = "none";
+        }
     }
 }

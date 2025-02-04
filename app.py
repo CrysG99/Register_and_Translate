@@ -121,7 +121,7 @@ def order():
 
             cur.close()
             conn.close()
-            flash('Ordre har blitt bestilt!', 'success')
+            flash('Ordre har blitt bestilt! Tusen takk {user[1]}', 'success')
             return redirect(url_for('profile', username=session['username']))
         except Exception as e:
             flash(f"Feil med bestilling: {e}", 'danger')
