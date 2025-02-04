@@ -6,7 +6,7 @@ import re
 app = Flask(__name__)
 app.secret_key = 'jonakey'
 
-
+# henter all dataen fra Pi-en som skal brukes for å sende info fra nettsiden til databasen
 db_config = {
     'host': '10.2.3.123',
     'user': 'jonathan',
@@ -14,19 +14,21 @@ db_config = {
     'database': 'book_store'
 }
 
-@app.route('/profile/<username>')
+# Profilsiden
+@app.route('/profile/<username>') # Vil tilpasse username med navnet du har logget på med
 def profile(username):
     try:
         conn = pymysql.connect(**db_config)
         cur = conn.cursor()
 
+        # Sjekker om brukeren eksisterer
         user_query = "SELECT id, username, email FROM users WHERE username = %s"
         cur.execute(user_query, (username,))
         user = cur.fetchone()
-
-        if not user:
+        if not user: 
             flash('Bruker ikke funnet', 'danger')
             return redirect('/')
+        # Hvis brukeren ikke eksisterer vil den kjøre denne koden ^
         
         orders_query = "SELECT book_title, order_date FROM orders WHERE user_id = %s"
         cur.execute(orders_query, (user[0],))

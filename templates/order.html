@@ -23,8 +23,8 @@
             <label class="order-label" for="book_title">Skriv inn boktittelen:</label>
             <input type="text" id="book_title" name="book_title" placeholder="Eks., The Catcher in the Rye" required>
 
-            <label for="language">Språk for oversettelse:</label>
-            <select name="language" id="language" required>
+            <label class="order-label" for="language">Språk for oversettelse:</label>
+            <select name="language" id="language" onchange="checkOtherLanguage()" required>
                 <option value="">Velg et språk</option>
                 <option value="English">Engelsk</option>
                 <option value="Spanish">Spansk</option>
@@ -34,6 +34,9 @@
                 <option value="Japanese">Japansk</option>
                 <option value="Other">Andre</option>
             </select>
+
+            <input type="text" id="otherLanguage" name="other_language" placeholder="Skriv inn språket: "
+                style="display: none;">
 
             <button class="" type="submitbook">Bestill Bok</button>
         </form>

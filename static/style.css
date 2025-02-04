@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
 
 body {
     background-color: #fff;
@@ -123,6 +123,12 @@ body {
     color: #000;
 }
 
+.order-label {
+    font-family: "Russo One", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
 .book-container {
     display: flex;
     justify-content: center;
@@ -161,6 +167,10 @@ body {
     margin-bottom: 10px;
 }
 
+.book-image:hover {
+    cursor: pointer;
+}
+
 .popup {
     display: none;
     position: fixed;
@@ -183,8 +193,11 @@ body {
 
 .popup-close {
     cursor: pointer;
-    color: red;
+    color: #ff1c02;
     font-size: 16px;
+    font-family: "Russo One", serif;
+    font-weight: 400;
+    font-style: normal;
     margin-top: 20px;
 }
 

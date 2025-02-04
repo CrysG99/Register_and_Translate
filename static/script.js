@@ -13,3 +13,14 @@ function closePopup() {
     document.getElementById('popup').style.display = 'none';
     document.getElementById('overlay').style.display = 'none';
 }
+
+function checkOtherLanguage() {
+    var languageSelect = document.getElementById("language");
+    var otherLanguageInput = document.getElementById("otherLanguage");
+
+    if (languageSelect.value == "Other") {
+        otherLanguageInput.style.display = "block";
+    } else {
+        otherLanguageInput.style.display = "none";
+    }
+}
