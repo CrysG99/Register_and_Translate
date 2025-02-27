@@ -1,3 +1,3 @@
 # Hva er planen?
 
-Planen er for i dag (Mandag 20. Januar) å få flere fungerende flask sider med litt info og så prøve å få til en login greie i morgen. Jeg vil også ha en type oppsett hvor man kan se hvilke bøker som har blitt bestilt
+Planen er for i dag (Mandag 20. Januar) å få flere fungerende flask sider med litt info og så prøve å få til en login greie i morgen. Jeg vil også ha en type oppsett hvor man kan se hvilke bøker som har blitt bestilt. Det vil være mulighet for å logge seg inn og registrere bruker som skal bli lagret i en mariadb server på pien og for siden med bøkene skal det være tre bøker, men man kan legge inn et bokønske i en boks.

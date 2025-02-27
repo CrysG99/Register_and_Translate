@@ -50,14 +50,19 @@ body {
 }
 
 .gptittel {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: "Rowdies", serif;
+    font-weight: 400;
+    font-style: normal;
     color: #000;
 }
 
 .gptext {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: "Russo One", serif;
+    font-weight: 400;
+    font-style: normal;
     color: #000;
-
+    margin-left: 15%;
+    margin-right: 15%;
 }
 
 .infotext {
@@ -127,6 +132,7 @@ body {
     font-family: "Russo One", serif;
     font-weight: 400;
     font-style: normal;
+    color: #000;
 }
 
 .book-container {

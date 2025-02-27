@@ -13,7 +13,19 @@
         <h1 class="title"> Bestill Oversettelse </h1>
         <button class="menubutton" onclick="location.href='{{ url_for('home') }}'">Gå tilbake til hjemsiden</a>
         </button>
+        {% if 'user_id' not in session %}
         <button class="menubutton" onclick="location.href='{{ url_for('register') }}'">Registrer deg/Logg inn</a>
+        </button>
+
+        {% else %}
+        <button class="userbutton" onclick="location.href='{{ url_for('profile', username=session['username']) }}'">
+            <img src="/static/img/greypfp.png" alt="Klikkbart profilbilde" width="10%">
+        </button>
+        {% endif %}
+
+        {% if 'user_id' in session %}
+        <button class="menubutton" onclick="location.href='{{ url_for('logout') }}'">Logg ut</button>
+        {% endif %}
     </div>
 
 

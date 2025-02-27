@@ -80,6 +80,7 @@ def login():
         username = request.form['username']
         email = request.form['email']
         password = request.form['password']
+
     try:
         conn = pymysql.connect(**db_config)
         cur = conn.cursor()
@@ -96,9 +97,10 @@ def login():
         else:
             flash('Ugyldig brukernavn eller passord', 'danger')
             return redirect(url_for('login'))
+        
     except Exception as e:
         flash(f"Feil med innlogging: {e}", 'danger')
-        return redirect(url_for('login'))
+
     return render_template('login.html')
 
 @app.route('/order', methods=['GET', 'POST'])
@@ -128,6 +130,12 @@ def order():
             return redirect(url_for('order'))
         
     return render_template('order.html')
+
+@app.route('/logout')
+def logout():
+    session.clear()
+    flash('Du har logget ut!', 'info')
+    return redirect(url_for('home'))
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080, debug=True)

@@ -10,18 +10,25 @@
 
 <body>
     <div class="header">
-        <h1 class="title"> Din lokale bokoversetter! </h1>
+        <h1 class="title"> Velkommen til GPTranslate </h1>
         <button class="menubutton" onclick="location.href='{{ url_for('order') }}'">Bestill oversettelse</a> </button>
+        {% if 'user_id' not in session %}
         <button class="menubutton" onclick="location.href='{{ url_for('register') }}'">Registrer deg/Logg inn</a>
         </button>
+
+        {% else %}
         <button class="userbutton" onclick="location.href='{{ url_for('profile', username=session['username']) }}'">
             <img src="/static/img/greypfp.png" alt="Klikkbart profilbilde" width="10%">
         </button>
-        </svg>
+        {% endif %}
+
+        {% if 'user_id' in session %}
+        <button class="menubutton" onclick="location.href='{{ url_for('logout') }}'">Logg ut</button>
+        {% endif %}
     </div>
 
     <div class="infotext">
-        <h1 class="gptittel"> Om oss! </h1>
+        <h1 class="gptittel"> Om GPTranslate! </h1>
         <p class="gptext"> Hei! Jeg heter Geir Petter Torgersen og jeg jobber som bokoversetter. Fra denne nettsiden kan
             du bestille en
             bok som du vil skal oversettes fra et stort utvalg! </p>
